@@ -1,0 +1,36 @@
+.tm-input-number {
+  display: inline-flex;
+  border: solid 1px #e9eff4;
+  border-radius: 0.4rem;
+}
+
+.tm-input-number input {
+  padding: 0.8rem 1.3rem;
+  border: none;
+}
+
+.tm-input-number input:focus {
+  outline: none;
+}
+
+.tm-input-number > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.tm-input-number button {
+  outline: 0;
+  border: none;
+  height: 1.8rem;
+  width: 2.8rem;
+  background-color: rgba(244, 247, 249, 0.4);
+  padding: 0px;
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid #e9eff4;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.tm-input-number button:first-child {
+  border-bottom-color: #e9eff4;
+}
