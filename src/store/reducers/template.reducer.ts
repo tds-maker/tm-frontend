@@ -18,7 +18,6 @@ class TemplateReducer extends Reducer<ITemplatesStore> {
             : [...state.current.languages.filter(x => x !== language)];
 
         let primaryLanguage = state.current.primaryLanguage;
-
         const hasSelectedLanguage = languages.length > 0;
         const primaryLanguageIsInSelectedLanguages = languages.indexOf(state.current.primaryLanguage) >= 0;
 
@@ -29,6 +28,10 @@ class TemplateReducer extends Reducer<ITemplatesStore> {
         }
 
         return Object.assign({}, state, { current : {...state.current, primaryLanguage, languages }})
+    }
+
+    public selectPrimaryLanguage(state: ITemplatesStore, primaryLanguage: string){
+        return Object.assign({}, state, { current : {...state.current, primaryLanguage }})
     }
 
     public initBlankTemplate(state:ITemplatesStore){
