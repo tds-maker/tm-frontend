@@ -4,7 +4,8 @@ import { Button, FolderNameLabel, FoldersTree, NewFolder} from '../../../../../c
 import { TemplatesTable } from '../../../components';
 
 export interface IProps {
-  onChangeTab: (index: number) => void
+  onChangeTab?: (index: number) => void,
+  saveTemplate?: () => void
 }
 
 export default class ThirdTab extends React.PureComponent<IProps, any>{
@@ -42,8 +43,8 @@ export default class ThirdTab extends React.PureComponent<IProps, any>{
             <Button id="prev" color="gray2" onClick={this.changeTab.bind(this, 1)}>
               Previous
             </Button>
-            <Button id="next" color="blue">
-              Next
+            <Button id="save" color="blue" onClick={this.props.saveTemplate}>
+              Save Template
             </Button>
           </div>
         </div>

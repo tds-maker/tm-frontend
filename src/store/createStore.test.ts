@@ -19,7 +19,7 @@ describe('Create store', () => {
   });
 
   it('should set default template state', () => {
-    expect(state.template).toBeDefined();
+    expect(state.templates).toBeDefined();
   });
 
   it('should set default template folders state', () => {

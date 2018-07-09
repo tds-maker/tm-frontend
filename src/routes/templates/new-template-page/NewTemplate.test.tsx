@@ -1,7 +1,7 @@
 import { configure, shallow } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 import * as React from 'react';
-import { ITemplateStore } from '../../../models';
+import { ITemplate } from '../../../models';
 
 import { Header } from '../../../components';
 
@@ -11,17 +11,25 @@ import NewTemplate from './NewTemplate';
 
 configure({ adapter: new Adapter() });
 
-const testState: ITemplateStore = {
+const testState: ITemplate = {
   name: '',
   languages: ['en'],
   productNumberOption: 'optional',
   primaryLanguage: 'en'
 };
 
+const folderState: any = {
+  foldersTree : {
+    selectedFolder : {
+      _id : 'fakeFolderId'
+    }
+  }
+}
+
 describe('NewTemplate Route Component', () => {
   let wrapper: any;
   beforeEach(() => {
-    wrapper = shallow(<NewTemplate template={testState} />);
+    wrapper = shallow(<NewTemplate template={testState} templateFolders={folderState} />);
   });
 
   it('should render new template successfully', () => {
