@@ -1,11 +1,17 @@
-// import { connect } from 'react-redux';
-// import { IStoreState } from '../../../../store';
+import { connect } from 'react-redux';
 
-import TemplatesTable from './TemplatesTable';
+import {IStore} from '../../../../models';
+import {getAccountTemplates} from '../../../../store';
 
-// const mapStateToProps = (state: IStoreState) => ({
-//   templates: state.templates.folderTemplates
-// });
+import TemplatesTable, {IProps} from './TemplatesTable';
 
-// export default connect(mapStateToProps)(TemplatesTable);
-export default TemplatesTable;
+const mapStateToProps = (state: IStore) => ({
+  templates: state.templates.templates,
+  selectedFolder: state.templateFolders.foldersTree.selectedFolder
+});
+
+const mapDispatchToState = (dispatch:any) => ({
+  getTemplates : () => dispatch(getAccountTemplates())
+})
+
+export default connect<any, any, IProps>(mapStateToProps, mapDispatchToState)(TemplatesTable);

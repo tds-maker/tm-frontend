@@ -1,4 +1,5 @@
 export { default as store } from './createStore';
+export { addNotify } from './actions/app.actions';
 export { createFolder, initFolders, toogleFolder } from './actions/folders.actions';
 export {
   // changeTab,
@@ -8,6 +9,7 @@ export {
   // nt_onProductNumberOptionChange,
   // nt_setPrimaryLanguage,
   changeName,
+  getAccountTemplates,
   initBlankTemplate,
   selectProductNumberOption,
   selectLanguage,

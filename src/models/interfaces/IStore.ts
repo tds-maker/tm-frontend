@@ -1,7 +1,7 @@
-import {IAppStore, IFolderStore, ITemplateStore, IUserStore} from '../';
+import {IAppStore, IFolderStore, ITemplatesStore, IUserStore} from '../';
 
 export default interface IStore {
-    template: ITemplateStore,
+    templates: ITemplatesStore,
     user: IUserStore,
     app: IAppStore,
     templateFolders: IFolderStore

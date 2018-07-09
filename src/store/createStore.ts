@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const allReducers = combineReducers({
-  template: templateReducer,
+  templates: templateReducer,
   user: userReducer,
   app : appReducer,
   templateFolders: templateFoldersReducer,

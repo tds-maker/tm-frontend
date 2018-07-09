@@ -1,15 +1,15 @@
 import * as React from 'react';
 
 import { Button, CheckBox, Input, ISelectItem, SelectList } from '../../../../../components';
-import { ITemplateStore } from '../../../../../models';
+import { ITemplate } from '../../../../../models';
 import { changeName, selectLanguage, selectPrimaryLanguage, selectProductNumberOption } from '../../../../../store';
 
 
 export interface IProps {
-  template?: ITemplateStore,
+  template?: ITemplate,
   languages?:object,
   dispatch?: (action: any) => void,
-  onChangeTab: (index: number) => void
+  onChangeTab?: (index: number) => void
 }
 
 export default class SecondTab extends React.PureComponent<IProps> {

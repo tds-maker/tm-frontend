@@ -33,15 +33,17 @@ describe('Folder actions', () => {
             sandbox.stub(httpProvider, 'post').resolves({ status : true });
 
             const store = mockStore({
-                folders : {
-                    selectedFolder : {
-                        template : '1'
+                templateFolders : {
+                    foldersTree : {
+                        selectedFolder : {
+                            template : '1'
+                        }
                     }
                 }
             });
             await store.dispatch(createFolder('template', 'new folder') as any);
             const actions = store.getActions();
-            console.log("actions", actions);
+            
             expect(actions).toEqual([ { type: 'INIT_FOLDERS', folderType: 'template', folders: [] } ]);
             done();
         })

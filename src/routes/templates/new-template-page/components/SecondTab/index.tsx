@@ -1,15 +1,15 @@
 import {connect} from 'react-redux';
 
-import { IStore, ITemplateStore } from '../../../../../models';
+import { IStore, ITemplate } from '../../../../../models';
 import SecondTab, {IProps} from './SecondTab';
 
 interface IPropsFromState {
-    template?:ITemplateStore,
+    template?:ITemplate,
     languages?: object
 }
 
 const mapStateToProps = (state:IStore) => ({
-    template : state.template,
+    template : state.templates.current,
     languages :state.app.languages
 })
 
