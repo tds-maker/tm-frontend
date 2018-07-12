@@ -1,46 +1,67 @@
 import * as React from 'react';
 
-import { Button, FolderNameLabel, FoldersTree, NewFolder} from '../../../../../components';
+import {
+  Button,
+  FolderNameLabel,
+  FoldersTree,
+  NewFolder
+} from '../../../../../components';
 import { TemplatesTable } from '../../../components';
-
 export interface IProps {
-  onChangeTab?: (index: number) => void,
-  saveTemplate?: () => void
+  onChangeTab?: (index: number) => void;
+  saveTemplate?: () => void;
 }
-
-export default class ThirdTab extends React.PureComponent<IProps, any>{
-  
-  constructor(props:IProps){
+export default class ThirdTab extends React.PureComponent<IProps, any> {
+  constructor(props: IProps) {
     super(props);
     this.state = {
-      newFolderVisible : false
-    }
+      newFolderVisible: false
+    };
 
     this.toggleNewFolderPopup = this.toggleNewFolderPopup.bind(this);
   }
 
-    public render(){
-        return (<div style={{ display: 'flex', width: '100%' }}>
-            <div className="tab-col">
-            <div className="col-head">
-                <Button color="border-blue" size="small" onClick={this.toggleNewFolderPopup}>
-                    <i className="icon-add" /> New
-                </Button>
-            </div>
-            <FoldersTree folderType="template" />
+  public render() {
+    console.log(this.props, this.state, 'rhirdtab');
+    return (
+      <div style={{ display: 'flex', width: '100%' }}>
+        <div className="tab-col">
+          <div className="col-head">
+            <Button
+              color="border-blue"
+              size="small"
+              onClick={this.toggleNewFolderPopup}
+            >
+              <i className="icon-add" /> New
+            </Button>
+          </div>
+          <FoldersTree folderType="template" />
         </div>
         <div className="tab-col">
           <div className="col-head clearfix">
             <FolderNameLabel folderType="template" renderAs="h3" />
-            <Button className="pull-right" size="small" color="gray3" onClick={this.toggleNewFolderPopup}>
+            <Button
+              className="pull-right"
+              size="small"
+              color="gray3"
+              onClick={this.toggleNewFolderPopup}
+            >
               Create Folder
             </Button>
           </div>
 
           <TemplatesTable />
-          <NewFolder folderType="template" isActive={this.state.newFolderVisible} onCloseClick={this.toggleNewFolderPopup} />
+          <NewFolder
+            folderType="template"
+            isActive={this.state.newFolderVisible}
+            onCloseClick={this.toggleNewFolderPopup}
+          />
           <div className="step-action">
-            <Button id="prev" color="gray2" onClick={this.changeTab.bind(this, 1)}>
+            <Button
+              id="prev"
+              color="gray2"
+              onClick={this.changeTab.bind(this, 1)}
+            >
               Previous
             </Button>
             <Button id="save" color="blue" onClick={this.props.saveTemplate}>
@@ -48,17 +69,18 @@ export default class ThirdTab extends React.PureComponent<IProps, any>{
             </Button>
           </div>
         </div>
-        </div>)
-    }
+      </div>
+    );
+  }
 
-    private changeTab(index:number) {
-      const { onChangeTab = () => null } = this.props;
-      onChangeTab(index);
-    }
+  private changeTab(index: number) {
+    const { onChangeTab = () => null } = this.props;
+    onChangeTab(index);
+  }
 
-    private toggleNewFolderPopup(){
-      this.setState({
-        newFolderVisible :!this.state.newFolderVisible
-      })
-    }
+  private toggleNewFolderPopup() {
+    this.setState({
+      newFolderVisible: !this.state.newFolderVisible
+    });
+  }
 }
