@@ -13,6 +13,7 @@ import SwitchButton from './components/UI/SwitchButton/exampleComponent';
 const Test = () => {
   return <Link to="/templates/new">New</Link>;
 };
+
 class App extends React.Component {
   public render() {
     return (
