@@ -13,14 +13,12 @@ const AsyncNewTemplate = asyncComponent(() =>
 const Test = () => {
   return <Link to="/templates/new">New</Link>;
 };
-import PageNavigator from './components/UI/PageNavigation/examplePageNavigator';
 class App extends React.Component {
   public render() {
     return (
       <Router>
         <Switch>
           <Route exact={true} path="/" component={Test} />
-          <Route path="/page-navigator" component={PageNavigator} />
           <Route
             exact={true}
             path="/templates/new"
