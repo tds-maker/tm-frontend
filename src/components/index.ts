@@ -10,3 +10,4 @@ export { default as FoldersTree } from './Folders/FoldersTreeUI';
 export { default as NewFolder} from './Folders/NewFolder';
 export { default as Notify } from './UI/Notify';
 export { default as FolderNameLabel} from './Folders/FolderNameLabel';
+export { default as Table, IColumn } from './UI/Table/Table';

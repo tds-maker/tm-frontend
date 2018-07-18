@@ -97,26 +97,6 @@
   margin-left: 5px;
 }
 
-.tabs_content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 15px;
-}
-.tabs_content table th {
-  border-bottom: 1px solid #c5d0de;
-  padding: 5px;
-  font-size: 11px;
-}
-.tabs_content table th:first-child {
-  padding-left: 0;
-}
-.tabs_content table th:last-child {
-  padding-right: 0;
-}
-
-.tabs_content table td {
-  font-size: 12px;
-}
 
 .tabs_content .col-text {
   margin-top: 30px;
