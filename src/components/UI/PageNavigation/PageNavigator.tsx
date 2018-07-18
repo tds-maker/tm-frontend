@@ -1,25 +1,29 @@
 import * as React from 'react';
 import './pagenavigator.css';
 
-export default class HelloWorld extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    this.state = { number: 1 };
-  }
-  public handleChangePlus = () => {
-    console.log('handleChangePlus');
-    // this.setState(prevState{})
-  };
-  public handleChangeMinus = () => {
-    console.log('handleChangeMinus');
-  };
-  public render() {
-    return (
-      <div className="page-navigator">
-        <span onClick={this.handleChangePlus} className="plus" />
-        <span className="number">{this.state.number}</span>
-        <span onClick={this.handleChangeMinus} className="minus" />
-      </div>
-    );
-  }
+interface IProps {
+  onClick?: ((e: any) => void);
+  onUp?: ((e: any) => void);
+  onDown?: ((e: any) => void);
+  currentPage: number;
+  totalPage: number;
 }
+
+const PageNavigator: React.SFC<IProps> = ({
+  onClick,
+  currentPage,
+  totalPage,
+  onUp,
+  onDown
+}: IProps) => {
+  return (
+    <div className="page-navigator">
+      <span onClick={onUp} className="plus">
+        sdasdas
+      </span>
+      <span className="number">{currentPage}</span>
+      <span onClick={onDown} className="minus" />
+    </div>
+  );
+};
+export default PageNavigator;
