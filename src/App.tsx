@@ -13,7 +13,6 @@ const AsyncNewTemplate = asyncComponent(() =>
 const Test = () => {
   return <Link to="/templates/new">New</Link>;
 };
-
 class App extends React.Component {
   public render() {
     return (
