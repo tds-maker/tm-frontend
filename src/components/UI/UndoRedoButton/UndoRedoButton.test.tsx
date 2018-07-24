@@ -17,13 +17,31 @@ describe('UnduRedo Button Component', () => {
         handleClickUndo={handleClickUndo}
         handleClickRedo={handleClickRedo}
         undoEnabled={true}
-        redoEnabled={true}
+        redoEnabled={false}
       />
     );
   });
 
   it('should render successfully', () => {
     expect(wrapper.exists()).toEqual(true);
-    expect(wrapper.type()).toEqual('div');
+    expect(wrapper.type()).toEqual(React.Fragment);
+    expect(wrapper.childAt(0).type()).toBe('a');
+    expect(wrapper.childAt(1).type()).toBe('a');
+  });
+
+  it('When undoEnabled is true clicked:', () => {
+    const clickMock = jest.fn();
+    expect(clickMock.mock.calls.length).toEqual(0);
+    wrapper.setProps({ handleClickUndo: clickMock });
+    wrapper.childAt(0).simulate('click');
+    expect(clickMock.mock.calls.length).toEqual(1);
+  });
+
+  it('When redoEnabled is false clicked:', () => {
+    const clickMock = jest.fn();
+    expect(clickMock.mock.calls.length).toEqual(0);
+    wrapper.setProps({ handleClickRedo: clickMock });
+    wrapper.childAt(1).simulate('click');
+    expect(clickMock.mock.calls.length).toEqual(0);
   });
 });

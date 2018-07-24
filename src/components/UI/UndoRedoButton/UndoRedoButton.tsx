@@ -1,38 +1,43 @@
 import * as React from 'react';
-
 import './undoredobutton.css';
 
-interface IProps {
-  handleClickUndo?: ((e: React.FormEvent) => void);
-  handleClickRedo?: ((e: React.FormEvent) => void);
+export interface IProps {
+  handleClickUndo?: () => void;
+  handleClickRedo?: () => void;
   undoEnabled: boolean;
   redoEnabled: boolean;
 }
 
-const UndoRedoButton: React.SFC<IProps> = ({
-  handleClickUndo,
-  handleClickRedo,
-  undoEnabled,
-  redoEnabled
-}: IProps) => {
-  return (
-    <div>
-      <a
-        onClick={handleClickUndo}
-        style={{ pointerEvents: undoEnabled ? 'auto' : 'none' }}
-        className="undo toolbar-item history-step"
-      >
-        <i className="icon-undo" />
-      </a>
-      <a
-        style={{ pointerEvents: redoEnabled ? 'auto' : 'none' }}
-        onClick={handleClickRedo}
-        className="redo toolbar-item history-step"
-      >
-        <i className="icon-redo" />
-      </a>
-    </div>
-  );
-};
-
-export default UndoRedoButton;
+export default class IApp extends React.Component<IProps> {
+  public render() {
+    const { undoEnabled, redoEnabled } = this.props;
+    return (
+      <>
+        <a
+          onClick={this.onUndoClick}
+          style={{ pointerEvents: undoEnabled ? 'auto' : 'none' }}
+          className=" toolbar-item history-step"
+        >
+          <i className="icon-undo" />
+        </a>
+        <a
+          onClick={this.onRedoClick}
+          style={{ pointerEvents: redoEnabled ? 'auto' : 'none' }}
+          className=" toolbar-item history-step"
+        >
+          <i className="icon-redo" />
+        </a>
+      </>
+    );
+  }
+  private onUndoClick = () => {
+    if (this.props.handleClickUndo && this.props.undoEnabled) {
+      this.props.handleClickUndo();
+    }
+  };
+  private onRedoClick = () => {
+    if (this.props.handleClickRedo && this.props.redoEnabled) {
+      this.props.handleClickRedo();
+    }
+  };
+}

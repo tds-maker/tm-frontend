@@ -4,3 +4,13 @@
 .icon-undo:before {
   content: '\e934';
 }
+
+.history-step {
+  color: #c5c5c5;
+  padding: 0 5px;
+  font-size: 23px;
+  line-height: 29px;
+}
+.history-step:hover {
+  color: #4da1ff;
+}
