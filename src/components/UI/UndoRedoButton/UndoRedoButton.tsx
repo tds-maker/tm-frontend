@@ -11,19 +11,26 @@ export interface IProps {
 export default class IApp extends React.Component<IProps> {
   public render() {
     const { undoEnabled, redoEnabled } = this.props;
+
     return (
       <>
         <a
           onClick={this.onUndoClick}
-          style={{ pointerEvents: undoEnabled ? 'auto' : 'none' }}
-          className=" toolbar-item history-step"
+          className={`${
+            undoEnabled
+              ? 'toolbar-item history-step'
+              : 'toolbar-item history-step-disabled'
+          }`}
         >
           <i className="icon-undo" />
         </a>
         <a
           onClick={this.onRedoClick}
-          style={{ pointerEvents: redoEnabled ? 'auto' : 'none' }}
-          className=" toolbar-item history-step"
+          className={`${
+            redoEnabled
+              ? 'toolbar-item history-step'
+              : 'toolbar-item history-step-disabled'
+          }`}
         >
           <i className="icon-redo" />
         </a>

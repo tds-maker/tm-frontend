@@ -6,11 +6,16 @@
 }
 
 .history-step {
-  color: #c5c5c5;
+  color: #3e4955 !important;
   padding: 0 5px;
   font-size: 23px;
   line-height: 29px;
 }
 .history-step:hover {
-  color: #4da1ff;
+  color: #4da1ff !important;
+}
+
+.history-step-disabled {
+  color: #c5c5c5 !important;
+  pointer-events: none;
 }
