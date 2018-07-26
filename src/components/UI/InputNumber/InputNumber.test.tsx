@@ -6,20 +6,17 @@ import InputNumber from './InputNumber';
 
 configure({ adapter: new Adapter() });
 
+const mockFn = () => null;
 describe('Input number component', () => {
   let wrapper: any;
 
   beforeEach(() => {
-    wrapper = shallow(<InputNumber />);
+    wrapper = shallow(<InputNumber onValueChanged={mockFn} />);
   });
 
   it('should render successfully', () => {
     expect(wrapper.exists()).toEqual(true);
     expect(wrapper.type()).toEqual('div');
-  });
-
-  it('should set default css class', () => {
-    expect(wrapper.prop('className')).toEqual('tm-input-number');
   });
 
   it('should input element', () => {
@@ -28,13 +25,13 @@ describe('Input number component', () => {
   });
 
   it('should render plus button', () => {
-    expect(wrapper.find('button.plus').exists()).toEqual(true);
-    expect(wrapper.find('button.plus').text()).toEqual('+');
+    expect(wrapper.find('button.qtyplus').exists()).toEqual(true);
+    expect(wrapper.find('button.qtyplus').text()).toEqual('+');
   });
 
   it('should render minus button', () => {
-    expect(wrapper.find('button.minus').exists()).toEqual(true);
-    expect(wrapper.find('button.minus').text()).toEqual('-');
+    expect(wrapper.find('button.qtyminus').exists()).toEqual(true);
+    expect(wrapper.find('button.qtyminus').text()).toEqual('-');
   });
 
   it('user can set default value', () => {
@@ -43,10 +40,10 @@ describe('Input number component', () => {
   });
 
   it('should add 1 when clicked plus', () => {
-    expect(wrapper.find('input').prop('value')).toEqual('');
+    expect(wrapper.find('input').prop('value')).toEqual(0);
     wrapper
-      .find('button.plus')
-      .simulate('click', { target: { className: 'plus' } });
+      .find('button.qtyplus')
+      .simulate('click', { target: { className: 'qtyplus' } });
     expect(wrapper.find('input').prop('value')).toEqual(1);
   });
 
@@ -54,8 +51,8 @@ describe('Input number component', () => {
     wrapper.setProps({ value: 5 });
     expect(wrapper.find('input').prop('value')).toEqual(5);
     wrapper
-      .find('button.minus')
-      .simulate('click', { target: { className: 'minus' } });
+      .find('button.qtyminus')
+      .simulate('click', { target: { className: 'qtyminus' } });
     expect(wrapper.find('input').prop('value')).toEqual(4);
   });
 

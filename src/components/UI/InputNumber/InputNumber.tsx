@@ -4,6 +4,7 @@ import './inputNumber.css';
 
 interface IProps {
   value?: number | string;
+  onValueChanged: (value: number) => void;
 }
 
 interface IState {
@@ -35,20 +36,21 @@ export default class InputNumber extends React.PureComponent<IProps, IState> {
 
   public render() {
     return (
-      <div className="tm-input-number">
+      <div>
         <div>
           <input
             type="text"
             onKeyPress={this.isNumber}
             onChange={this.onValueChange}
-            value={this.state.value !== undefined ? this.state.value : ''}
+            value={this.state.value !== undefined ? this.state.value : 0}
+            className="input small qty"
           />
         </div>
         <div>
-          <button className="plus" onClick={this.onButtonClick}>
+          <button className="qtyplus" onClick={this.onButtonClick}>
             +
           </button>
-          <button className="minus" onClick={this.onButtonClick}>
+          <button className="qtyminus" onClick={this.onButtonClick}>
             -
           </button>
         </div>
@@ -57,16 +59,20 @@ export default class InputNumber extends React.PureComponent<IProps, IState> {
   }
 
   private onValueChange(e: any) {
+    const newValue = this.convertNumber(e.target.value);
     this.setState({
-      value: this.convertNumber(e.target.value)
+      value: newValue
     });
+
+    this.props.onValueChanged(newValue);
   }
 
   private onButtonClick(e: any) {
     let currentValue = this.state.value !== undefined ? this.state.value : '0';
     currentValue = this.convertNumber(currentValue.toString());
     this.setState({
-      value: e.target.className === 'plus' ? currentValue + 1 : currentValue - 1
+      value:
+        e.target.className === 'qtyplus' ? currentValue + 1 : currentValue - 1
     });
   }
 
