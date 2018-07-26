@@ -49,4 +49,28 @@ describe('Body Spacing component', () => {
     expect(ChildComponent.at(2).props().value).toEqual(1);
     expect(ChildComponent.at(3).props().value).toEqual(1);
   });
+  it('handleChange function when click minus', () => {
+    const preventMock = jest.fn();
+    const ChildComponent = wrapper
+      .find(InputNumber)
+      .at(0)
+      .dive()
+      .find('button.qtyminus');
+    wrapper.setProps({ handleChange: preventMock });
+    expect(preventMock.mock.calls.length).toEqual(0);
+    ChildComponent.simulate('click', { target: { className: 'qtyminus' } });
+    expect(preventMock.mock.calls.length).toEqual(1);
+  });
+  it('handleChange function when click plus', () => {
+    const preventMock = jest.fn();
+    const ChildComponent = wrapper
+      .find(InputNumber)
+      .at(1)
+      .dive()
+      .find('button.qtyplus');
+    wrapper.setProps({ handleChange: preventMock });
+    expect(preventMock.mock.calls.length).toEqual(0);
+    ChildComponent.simulate('click', { target: { className: 'qtyplus' } });
+    expect(preventMock.mock.calls.length).toEqual(1);
+  });
 });

@@ -11,7 +11,8 @@ interface IProps {
     { value, position }: { value: number; position: string }
   ) => void;
 }
-export default class BodySpacing extends React.Component<IProps> {
+
+export default class BodySpacing extends React.PureComponent<IProps> {
   public render() {
     const { left, right, bottom, top } = this.props;
     return (
@@ -23,7 +24,7 @@ export default class BodySpacing extends React.Component<IProps> {
             <div className="plus-minus-box">
               <InputNumber
                 value={left}
-                onValueChanged={this.onInputValueChanged}
+                onValueChanged={this.onInputValueChanged.bind(this, 'left')}
               />
             </div>
           </div>
@@ -32,7 +33,7 @@ export default class BodySpacing extends React.Component<IProps> {
             <div className="plus-minus-box">
               <InputNumber
                 value={right}
-                onValueChanged={this.onInputValueChanged}
+                onValueChanged={this.onInputValueChanged.bind(this, 'right')}
               />
             </div>
           </div>
@@ -43,7 +44,7 @@ export default class BodySpacing extends React.Component<IProps> {
             <div className="plus-minus-box">
               <InputNumber
                 value={top}
-                onValueChanged={this.onInputValueChanged}
+                onValueChanged={this.onInputValueChanged.bind(this, 'top')}
               />
             </div>
           </div>
@@ -52,7 +53,7 @@ export default class BodySpacing extends React.Component<IProps> {
             <div className="plus-minus-box">
               <InputNumber
                 value={bottom}
-                onValueChanged={this.onInputValueChanged}
+                onValueChanged={this.onInputValueChanged.bind(this, 'bottom')}
               />
             </div>
           </div>
@@ -61,7 +62,9 @@ export default class BodySpacing extends React.Component<IProps> {
     );
   }
 
-  private onInputValueChanged = (newValue: number) => {
-    this.props.handleChange({ value: newValue, position: 'left' });
+  private onInputValueChanged = (position: string, newValue: number) => {
+    if (this.props.handleChange) {
+      this.props.handleChange({ value: newValue, position });
+    }
   };
 }
