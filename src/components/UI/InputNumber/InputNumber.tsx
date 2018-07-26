@@ -4,7 +4,7 @@ import './inputNumber.css';
 
 interface IProps {
   value?: number | string;
-  onValueChanged: (value: number) => void;
+  onValueChanged: any;
 }
 
 interface IState {
@@ -63,17 +63,19 @@ export default class InputNumber extends React.PureComponent<IProps, IState> {
     this.setState({
       value: newValue
     });
-
     this.props.onValueChanged(newValue);
   }
 
   private onButtonClick(e: any) {
     let currentValue = this.state.value !== undefined ? this.state.value : '0';
     currentValue = this.convertNumber(currentValue.toString());
-    this.setState({
-      value:
-        e.target.className === 'qtyplus' ? currentValue + 1 : currentValue - 1
-    });
+    this.setState(
+      {
+        value:
+          e.target.className === 'qtyplus' ? currentValue + 1 : currentValue - 1
+      },
+      () => this.props.onValueChanged(this.state.value)
+    );
   }
 
   private isNumber(e: any): boolean {
