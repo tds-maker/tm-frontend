@@ -7,6 +7,7 @@
     "no-console": false,
     "object-literal-sort-keys": false,
     "strictNullChecks": false,
-    "variable-name": false
+    "variable-name": false,
+    "jsx-no-lambda": false
   }
 }
