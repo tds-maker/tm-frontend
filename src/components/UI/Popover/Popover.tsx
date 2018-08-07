@@ -19,22 +19,19 @@ export default class IPopover extends React.Component<{}, IState> {
           this.state.isPopoverActive ? 'active' : ''
         }`}
       >
-        <span className="popover-trigger" data-id="color_popover">
+        <span className="popover-trigger">
           <span onClick={this.onPopoverActive} className="dropdown-icon">
             <i className="shadow-icon" />
           </span>
           <span className="arrow" />
         </span>
         <div
-          className={`popover color-popover ${
+          className={`popover popover-box ${
             this.state.isPopoverActive ? 'show' : ''
           }`}
           id="color_popover"
         >
           {this.props.children}
-          <div className="color-tabs">
-            <div className="tabs_content active" />
-          </div>
         </div>
       </div>
     );

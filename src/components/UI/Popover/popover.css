@@ -76,13 +76,6 @@
   margin-right: 3px;
 }
 
-.tabs_content {
-  display: none;
-}
-.tabs_content.active {
-  display: block;
-}
-
 .popover .small-title {
   font-size: 13px;
   color: #354052;
@@ -99,25 +92,47 @@
   display: block !important;
 }
 
-.color-popover {
+.popover-box {
   width: 234px;
   top: 60px;
   left: -6px;
   display: none;
 }
-.color-popover:before {
+.popover-box:before {
   left: 13px;
 }
 
-.color-popover-small {
+.popover-box-small {
   width: 209px;
   top: 60px;
   left: -6px;
   padding: 10px 25px 25px;
   display: none;
 }
-.color-popover-small:before {
+.popover-box-small:before {
   left: 13px;
+}
+.popover-box p {
+  font-size: 18px;
+  margin-bottom: 13px;
+  color: #323c47;
+}
+
+.popover-box .colorpicker-display-box + .colorpicker-palette {
+  margin-top: 18px;
+}
+
+.popover-box .upload-btn + .uploaded-file {
+  color: #4da1ff;
+  font-size: 10px;
+  margin-top: -22px;
+  margin-bottom: 9px;
+  display: block;
+}
+.popover-box .label {
+  font-size: 13px;
+  color: #354052;
+  margin-bottom: 0px;
 }
 
 .popover-title {
@@ -169,62 +184,4 @@
 }
 .popover.size .setting-row:last-child {
   margin-bottom: 0;
-}
-
-.color-popover p {
-  font-size: 18px;
-  margin-bottom: 13px;
-  color: #323c47;
-}
-
-.color-popover .colorpicker-display-box + .colorpicker-palette {
-  margin-top: 18px;
-}
-
-.color-tabs-control {
-  display: block;
-  width: 100%;
-  font-size: 0;
-  margin-bottom: 35px;
-  margin-top: 5px;
-}
-.color-tabs-control li {
-  width: 50%;
-  font-size: 18px;
-  color: #000;
-  font-weight: bold;
-  display: inline-block;
-}
-.color-tabs-control li span {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-.color-tabs-control li:last-child {
-  text-align: right;
-}
-.color-tabs-control li:first-child {
-  text-align: left;
-}
-.color-tabs-control li.active span:before {
-  content: '';
-  height: 3px;
-  left: 0;
-  right: 0;
-  bottom: -15px;
-  background-color: #ffd012;
-  position: absolute;
-}
-
-.color-popover .upload-btn + .uploaded-file {
-  color: #4da1ff;
-  font-size: 10px;
-  margin-top: -22px;
-  margin-bottom: 9px;
-  display: block;
-}
-.color-popover .label {
-  font-size: 13px;
-  color: #354052;
-  margin-bottom: 0px;
 }
