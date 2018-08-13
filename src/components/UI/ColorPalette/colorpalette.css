@@ -1,5 +1,7 @@
-.colorpicker-palette + .colorpicker-display-box {
-  margin-top: 10px;
+.colorpicker-palette,
+.colorpicker-display-box {
+  margin-top: 18px;
+  display: inline-block;
 }
 .colorpicker-palette p {
   font-size: 14px;
@@ -157,8 +159,4 @@
 .iro__marker__outer {
   stroke-width: 2 !important;
   stroke: rgb(255, 255, 255) !important;
-}
-.colorpicker-palette {
-  margin-top: 18px;
-  display: inline-block;
 }
