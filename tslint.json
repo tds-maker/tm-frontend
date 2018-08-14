@@ -15,6 +15,7 @@
         "import-sources-order": "any",
         "named-imports-order": "case-insensitive"
       }
-    ]
+    ],
+    "no-debugger": false
   }
 }
