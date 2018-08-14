@@ -32,9 +32,6 @@ export default class ColorPalette extends React.PureComponent<IProps, IState> {
         height: 240,
         sliderHeight: 17
       });
-      this.ColorPicker.el = 'div.inner';
-      debugger;
-      console.log(this.ColorPicker.el);
 
       this.ColorPicker.on('color:change', (color: iro.Color) => {
         this.setState({ currentColor: color.hexString });
