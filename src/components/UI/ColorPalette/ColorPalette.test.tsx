@@ -4,33 +4,24 @@ import * as React from 'react';
 import ColorPalette from './ColorPalette';
 
 configure({ adapter: new Adapter() });
-
 describe('ColorPalette Component', () => {
   let wrapper: any;
-  wrapper = shallow(<ColorPalette colors={[]} />);
+
+  beforeEach(() => {
+    wrapper = shallow(<ColorPalette colors={['#000']} />);
+  });
+
   it('should render successfully', () => {
     expect(wrapper.exists()).toEqual(true);
     expect(wrapper.type()).toEqual('div');
   });
-  it('should isColorPicker initially false', () => {
-    expect(wrapper.state().isColorPickerShow).toEqual(false);
-  });
-  describe('when customize prop is true', () => {
-    beforeEach(() => wrapper.setProps({ customize: true }));
-    it('should isColorPicker true', () => {
-      const mockFn = jest.fn();
-      wrapper.setProps({ onClick: mockFn });
-      wrapper.find('.add-color').simulate('click');
-      expect(wrapper.state().isColorPickerShow).toEqual(true);
-    });
-    it('when click apply button', () => {
-      const mockFn = jest.fn();
-      wrapper.setProps({ onClick: mockFn });
-      wrapper.setState({ currentColor: '#000' });
-      wrapper.find('input').simulate('click', { target: { value: 'Apply' } });
-      expect(wrapper.state().currentColor).toEqual('#000');
-      expect(wrapper.state().isColorPickerShow).toEqual(false);
-      expect(wrapper.state().colors).toEqual(['#000']);
-    });
+
+  it('when click color', () => {
+    const mockFn = jest.fn();
+    wrapper.setProps({ selectedColor: mockFn });
+    expect(mockFn.mock.calls.length).toEqual(0);
+    wrapper.find('span').simulate('click');
+    expect(mockFn.mock.calls.length).toEqual(1);
+    expect(mockFn.mock.calls[0][0]).toEqual('#000');
   });
 });

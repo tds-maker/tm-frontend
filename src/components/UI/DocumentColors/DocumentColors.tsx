@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ColorPalette } from '../../index';
 import './documentcolors.css';
 
-const IApp: React.SFC<{}> = () => {
+const DocumentColors: React.SFC<any> = () => {
   return (
     <div>
       <p>Document Colors</p>
@@ -16,4 +16,4 @@ const IApp: React.SFC<{}> = () => {
   );
 };
 
-export default IApp;
+export default DocumentColors;
