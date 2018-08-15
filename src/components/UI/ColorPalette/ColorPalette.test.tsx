@@ -18,7 +18,7 @@ describe('ColorPalette Component', () => {
 
   it('when click color', () => {
     const mockFn = jest.fn();
-    wrapper.setProps({ selectedColor: mockFn });
+    wrapper.setProps({ onColorSelect: mockFn });
     expect(mockFn.mock.calls.length).toEqual(0);
     wrapper.find('span').simulate('click');
     expect(mockFn.mock.calls.length).toEqual(1);

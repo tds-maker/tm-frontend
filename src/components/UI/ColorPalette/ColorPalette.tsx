@@ -5,7 +5,7 @@ interface IProps {
   colors: string[];
   customize?: boolean;
   title?: string;
-  selectedColor?: (colorCode: string) => void;
+  onColorSelect?: (colorCode: string) => void;
 }
 interface IState {
   fromChildColors: string[];
@@ -47,8 +47,8 @@ export default class ColorPalette extends React.PureComponent<IProps, IState> {
     );
   }
   private onSelectColor = (e: string) => {
-    if (this.props.selectedColor) {
-      this.props.selectedColor(e);
+    if (this.props.onColorSelect) {
+      this.props.onColorSelect(e);
     }
   };
 }
