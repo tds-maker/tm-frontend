@@ -27,7 +27,9 @@ describe('ColorWheel Component', () => {
       const mockFn = jest.fn();
       wrapper.setProps({ onColors: mockFn });
       wrapper.setState({ currentColor: '#000' });
+      expect(mockFn.mock.calls.length).toEqual(0);
       wrapper.find('input').simulate('click', { target: { value: 'Apply' } });
+      expect(mockFn.mock.calls.length).toEqual(1);
       expect(mockFn.mock.calls[0][0][0]).toEqual('#000');
       expect(wrapper.state().isColorPickerShow).toEqual(false);
       expect(wrapper.state().colors).toEqual(['#000']);
