@@ -13,6 +13,12 @@ export interface IState {
 }
 
 export default class ColorWheel extends React.PureComponent<IProps, IState> {
+  public static getDerivedStateFromProps(nextProps: IProps, prevState: IState) {
+    if (nextProps.onColors) {
+      nextProps.onColors(prevState.colors);
+    }
+    return {};
+  }
   private node: any;
   private colorpicker: any;
 
@@ -39,7 +45,6 @@ export default class ColorWheel extends React.PureComponent<IProps, IState> {
     }
   }
   public render() {
-    // console.log(this.props);
     if (this.props.visible) {
       return (
         <div className="colorpicker-display-box">
@@ -70,17 +75,10 @@ export default class ColorWheel extends React.PureComponent<IProps, IState> {
   private onSaveColor = () => {
     document.removeEventListener('click', this.handleOutsideClick, false);
     const newColors = [...this.state.colors, this.state.currentColor];
-    this.setState(
-      prevState => ({
-        isColorPickerShow: !prevState.isColorPickerShow,
-        colors: newColors
-      }),
-      () => {
-        if (this.props.onColors) {
-          this.props.onColors(this.state.colors);
-        }
-      }
-    );
+    this.setState(prevState => ({
+      isColorPickerShow: !prevState.isColorPickerShow,
+      colors: newColors
+    }));
   };
 
   private handleOutsideClick = (e: MouseEvent) => {
