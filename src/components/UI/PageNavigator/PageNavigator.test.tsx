@@ -1,14 +1,13 @@
 import { configure, shallow } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 import * as React from 'react';
-
 import PageNavigator from './PageNavigator';
 
 configure({ adapter: new Adapter() });
 
 describe('Input number component', () => {
-  const onDown = jest.fn();
-  const onUp = jest.fn();
+  const onDown = () => null;
+  const onUp = () => null;
   let wrapper: any;
 
   beforeEach(() => {
@@ -29,25 +28,21 @@ describe('Input number component', () => {
   it('Page Navigator Properly', () => {
     const navigatorValue = wrapper.find('.number').text();
     expect(navigatorValue).toEqual('3');
-
-    const onDownButton = wrapper.find('span .minus');
-    expect(onDownButton.length).toEqual(1);
-
-    const onUpButton = wrapper.find('span .plus');
-    expect(onUpButton.length).toEqual(1);
+    expect(wrapper.exists('.minus')).toEqual(true);
+    expect(wrapper.exists('.plus')).toEqual(true);
   });
   it('should call onClick event when onUp clicked', () => {
-    const onUpButton = wrapper.find('span .plus');
-    wrapper.setProps({ onClick: onUp });
-    expect(onUp.mock.calls.length).toEqual(0);
-    onUpButton.simulate('click');
-    expect(onUp.mock.calls.length).toEqual(1);
+    const mockFn = jest.fn();
+    wrapper.setProps({ onUp: mockFn });
+    expect(mockFn.mock.calls.length).toEqual(0);
+    wrapper.find('.plus').simulate('click');
+    expect(mockFn.mock.calls.length).toEqual(1);
   });
   it('should call onClick event when onDown clicked', () => {
-    const onDownButton = wrapper.find('span .minus');
-    wrapper.setProps({ onClick: onDown });
-    expect(onDown.mock.calls.length).toEqual(0);
-    onDownButton.simulate('click');
-    expect(onDown.mock.calls.length).toEqual(1);
+    const mockFn = jest.fn();
+    wrapper.setProps({ onDown: mockFn });
+    expect(mockFn.mock.calls.length).toEqual(0);
+    wrapper.find('.minus').simulate('click');
+    expect(mockFn.mock.calls.length).toEqual(1);
   });
 });

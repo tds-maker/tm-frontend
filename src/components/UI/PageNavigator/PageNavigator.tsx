@@ -18,9 +18,7 @@ const PageNavigator: React.SFC<IProps> = ({
 }: IProps) => {
   return (
     <div className="page-navigator">
-      <span onClick={onUp} className="plus">
-        sdasdas
-      </span>
+      <span onClick={onUp} className="plus" />
       <span className="number">{currentPage}</span>
       <span onClick={onDown} className="minus" />
     </div>
