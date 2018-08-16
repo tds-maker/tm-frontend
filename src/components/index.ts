@@ -22,3 +22,4 @@ export { default as TemplateSelect } from './UI/TemplateSelect/TemplateSelect';
 export { default as ColorPalette } from './UI/ColorPalette/ColorPalette';
 export { default as DocumentColors } from './UI/DocumentColors/DocumentColors';
 export { default as ColorWheel } from './UI/ColorWheel/ColorWheel';
+export { default as CutCopyPaste } from './UI/CutCopyPaste/CutCopyPaste';
