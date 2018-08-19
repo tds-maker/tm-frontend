@@ -24,7 +24,3 @@ export { default as Tab } from './UI/Tabs/Tab';
 export { default as Tabs } from './UI/Tabs/Tabs';
 export { default as TemplateSelect } from './UI/TemplateSelect/TemplateSelect';
 export { default as UnduRedoButton } from './UI/UndoRedoButton/UndoRedoButton';
-export { default as ColorPalette } from './UI/ColorPalette/ColorPalette';
-export { default as DocumentColors } from './UI/DocumentColors/DocumentColors';
-export { default as ColorWheel } from './UI/ColorWheel/ColorWheel';
-export { default as CutCopyPaste } from './UI/CutCopyPaste/CutCopyPaste';
