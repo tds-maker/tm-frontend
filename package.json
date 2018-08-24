@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@jaames/iro": "^3.4.1",
+    "@jaames/iro": "3.4.1",
     "@types/axios": "^0.14.0",
     "@types/camelcase": "^4.1.0",
     "@types/classnames": "^2.2.4",
