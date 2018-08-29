@@ -3,6 +3,7 @@ export { default as FoldersTree } from './Folders/FoldersTreeUI';
 export { default as NewFolder } from './Folders/NewFolder';
 export { default as Header } from './headers/Header';
 export { default as BodySpacing } from './UI/BodySpacing/BodySpacing';
+export { default as BulletedNumberedList } from './UI/BulletedNumberedList/BulletedNumberedList';
 export { default as Button } from './UI/Button/Button';
 export { default as CheckBox } from './UI/CheckBox/CheckBox';
 export { default as ColorPalette } from './UI/ColorPalette/ColorPalette';
