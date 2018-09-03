@@ -18,6 +18,7 @@ export { default as PageNavigator } from './UI/PageNavigator/PageNavigator';
 export { default as Popover } from './UI/Popover/Popover';
 export { default as RadioButton } from './UI/RadioButton/RadioButton';
 export { default as SelectList, ISelectItem } from './UI/SelectList/SelectList';
+export { default as ShapeButtons } from './UI/ShapeButtons/ShapeButtons';
 export { default as SuperSubScript } from './UI/SuperSubScript/SuperSubScript';
 export { default as SwitchButton } from './UI/SwitchButton/SwitchButton';
 export { default as Table, IColumn } from './UI/Table/Table';
