@@ -2,6 +2,7 @@ export { default as FolderNameLabel } from './Folders/FolderNameLabel';
 export { default as FoldersTree } from './Folders/FoldersTreeUI';
 export { default as NewFolder } from './Folders/NewFolder';
 export { default as Header } from './headers/Header';
+export { default as BlankAlternatingTable } from './UI/BlankAlternatingTable/BlankAlternatingTable';
 export { default as BodySpacing } from './UI/BodySpacing/BodySpacing';
 export { default as BulletedNumberedList } from './UI/BulletedNumberedList/BulletedNumberedList';
 export { default as Button } from './UI/Button/Button';
