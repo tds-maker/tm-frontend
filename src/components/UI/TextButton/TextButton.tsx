@@ -1,5 +1,5 @@
 import * as React from 'react';
-import 'textbutton.css';
+import './textbutton.css';
 interface IProps {
   onTextButton: (e: React.MouseEvent) => void;
 }
