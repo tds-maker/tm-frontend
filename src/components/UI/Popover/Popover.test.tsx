@@ -4,9 +4,14 @@ import * as React from 'react';
 import Popover from './Popover';
 configure({ adapter: new Adapter() });
 let wrapper: any;
+const props = {
+  popoverTypeClass: 'shape-popover',
+  popoverTypeId: 'shape_popover',
+  dropdownIcon: 'icon-shape'
+};
 describe('Popover Component', () => {
   beforeEach(() => {
-    wrapper = shallow(<Popover />);
+    wrapper = shallow(<Popover {...props} />);
   });
   it('should be render successfully', () => {
     expect(wrapper.exists()).toEqual(true);

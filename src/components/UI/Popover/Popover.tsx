@@ -4,8 +4,13 @@ import './popover.css';
 export interface IState {
   isPopoverActive?: boolean;
 }
-
-export default class IPopover extends React.Component<{}, IState> {
+interface IProps {
+  popoverTypeClass: string;
+  popoverTypeId: string;
+  dropdownIcon: string;
+  dropdownClass?: string;
+}
+export default class IPopover extends React.Component<IProps, IState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -14,29 +19,27 @@ export default class IPopover extends React.Component<{}, IState> {
   }
   public render() {
     return (
-      <div
-        className={`dropdown toolbar-item ${
-          this.state.isPopoverActive ? 'active' : ''
-        }`}
-      >
+      <div className={`dropdown toolbar-item ${this.state.isPopoverActive ? 'active' : ''}`}>
         <span className="popover-trigger">
-          <span onClick={this.onPopoverActive} className="dropdown-icon">
-            <i className="shadow-icon" />
+          <span
+            onClick={this.onPopoverActive}
+            className={`dropdown-icon ${this.props.dropdownClass ? this.props.dropdownClass : ''}`}
+          >
+            <i className={this.props.dropdownIcon} />
           </span>
           <span className="arrow" />
         </span>
         <div
-          className={`popover popover-box ${
+          className={`popover ${this.props.popoverTypeClass} ${
             this.state.isPopoverActive ? 'show' : ''
           }`}
-          id="color_popover"
+          id={this.props.popoverTypeId}
         >
           {this.props.children}
         </div>
       </div>
     );
   }
-
   private onPopoverActive = () => {
     this.setState(prevState => ({
       isPopoverActive: !prevState.isPopoverActive
