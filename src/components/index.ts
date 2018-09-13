@@ -23,6 +23,7 @@ export { default as SelectList, ISelectItem } from './UI/SelectList/SelectList';
 export { default as ShapeButtons } from './UI/ShapeButtons/ShapeButtons';
 export { default as SuperSubScript } from './UI/SuperSubScript/SuperSubScript';
 export { default as SwitchButton } from './UI/SwitchButton/SwitchButton';
+export { default as TabContent } from './UI/TabContent/TabContent';
 export { default as Table, IColumn } from './UI/Table/Table';
 export { default as Tab } from './UI/Tabs/Tab';
 export { default as Tabs } from './UI/Tabs/Tabs';
