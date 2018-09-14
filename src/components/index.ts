@@ -32,3 +32,4 @@ export { default as Tabs } from './UI/Tabs/Tabs';
 export { default as TemplateSelect } from './UI/TemplateSelect/TemplateSelect';
 export { default as TextButton } from './UI/TextButton/TextButton';
 export { default as UnduRedoButton } from './UI/UndoRedoButton/UndoRedoButton';
+export { default as UploadButton } from './UI/UploadButton/UploadButton';
