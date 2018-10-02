@@ -13,6 +13,7 @@ export { default as ColorPalette } from './UI/ColorPalette/ColorPalette';
 export { default as ColorWheel } from './UI/ColorWheel/ColorWheel';
 export { default as CutCopyPaste } from './UI/CutCopyPaste/CutCopyPaste';
 export { default as DocumentColors } from './UI/DocumentColors/DocumentColors';
+export { default as FontFamily } from './UI/FontFamily/FontFamily';
 export { default as HeadContainer } from './UI/HeadContainer/HeadContainer';
 export { default as ImageButton } from './UI/ImageButton/ImageButton';
 export { default as Input } from './UI/Input/Input';
