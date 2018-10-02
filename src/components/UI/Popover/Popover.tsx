@@ -7,27 +7,48 @@ export interface IState {
 interface IProps {
   popoverTypeClass: string;
   popoverTypeId: string;
-  dropdownIcon: string;
+  dropdownIcon?: string;
+  dropdownText?: string;
   dropdownClass?: string;
+  dropdownWrapperClass?: string;
 }
 export default class IPopover extends React.Component<IProps, IState> {
+  private node: any;
   constructor(props: any) {
     super(props);
     this.state = {
       isPopoverActive: false
     };
   }
+  public componentDidMount() {
+    document.addEventListener('mousedown', this.handleOutsideClick);
+  }
+
+  public componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleOutsideClick);
+  }
   public render() {
     return (
-      <div className={`dropdown toolbar-item ${this.state.isPopoverActive ? 'active' : ''}`}>
+      <div
+        ref={node => {
+          this.node = node;
+        }}
+        className={`dropdown toolbar-item ${
+          this.props.dropdownWrapperClass ? this.props.dropdownWrapperClass : ''
+        } ${this.state.isPopoverActive ? 'active' : ''}`}
+      >
         <span className="popover-trigger">
           <span
             onClick={this.onPopoverActive}
             className={`dropdown-icon ${this.props.dropdownClass ? this.props.dropdownClass : ''}`}
           >
-            <i className={this.props.dropdownIcon} />
+            {this.props.dropdownIcon ? (
+              <i className={this.props.dropdownIcon} />
+            ) : (
+              this.props.dropdownText
+            )}
           </span>
-          <span className="arrow" />
+          <span onClick={this.onPopoverActive} className="arrow" />
         </span>
         <div
           className={`popover ${this.props.popoverTypeClass} ${
@@ -40,7 +61,19 @@ export default class IPopover extends React.Component<IProps, IState> {
       </div>
     );
   }
+  private handleOutsideClick = (e: MouseEvent) => {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.onPopoverActive();
+  };
+
   private onPopoverActive = () => {
+    if (!this.state.isPopoverActive) {
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
     this.setState(prevState => ({
       isPopoverActive: !prevState.isPopoverActive
     }));

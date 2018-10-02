@@ -1,6 +1,5 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-
 import './checkbox.css';
 
 interface IProps {
@@ -10,6 +9,7 @@ interface IProps {
   id?: string;
   color?: string;
   rounded?: boolean;
+  style?: string;
 }
 
 const CheckBox: React.SFC<IProps> = ({
@@ -17,14 +17,18 @@ const CheckBox: React.SFC<IProps> = ({
   checked,
   onChange,
   id,
+  style,
   color = 'primary',
   rounded = false
 }: IProps) => {
-  const className = classNames({
-    'tm-checkbox': true,
-    [color]: true,
-    rounded
-  });
+  const className = classNames(
+    {
+      'tm-checkbox': true,
+      [color]: true,
+      rounded
+    },
+    style
+  );
 
   return (
     <label className={className}>
