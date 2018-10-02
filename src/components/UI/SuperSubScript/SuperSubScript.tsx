@@ -13,6 +13,7 @@ const SuperSubScript: React.SFC<ISuperSubScriptProps> = ({
       <a onClick={onSuperScript} className="toolbar-item">
         <i className="icon-superscript" />
       </a>
+      fdfdf
       <a onClick={onSubScript} className="toolbar-item">
         <i className="icon-subscript" />
       </a>
