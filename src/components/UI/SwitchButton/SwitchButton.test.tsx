@@ -1,7 +1,6 @@
 import { configure, shallow } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 import * as React from 'react';
-
 import SwitchButton from './SwitchButton';
 
 configure({ adapter: new Adapter() });
@@ -41,4 +40,4 @@ describe('SwitchButton Component', () => {
     wrapper.find('input').simulate('change');
     expect(onChangeMock.mock.calls.length).toEqual(1);
   });
-
+});
