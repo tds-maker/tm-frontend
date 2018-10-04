@@ -8,7 +8,7 @@ interface IProps {
   type?: string;
   placeholder?: string;
   onChange?: (e: any) => void;
-  value?: string;
+  value?: string | number;
   id?: string;
 }
 

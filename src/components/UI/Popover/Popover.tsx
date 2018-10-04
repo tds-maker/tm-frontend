@@ -4,13 +4,14 @@ import './popover.css';
 export interface IState {
   isPopoverActive?: boolean;
 }
-interface IProps {
+export interface IProps {
   popoverTypeClass: string;
   popoverTypeId: string;
   dropdownIcon?: string;
-  dropdownText?: string;
+  dropdownText?: any;
   dropdownClass?: string;
   dropdownWrapperClass?: string;
+  children?: any;
 }
 export default class IPopover extends React.Component<IProps, IState> {
   private node: any;
@@ -62,18 +63,17 @@ export default class IPopover extends React.Component<IProps, IState> {
     );
   }
   private handleOutsideClick = (e: MouseEvent) => {
-    if (this.node.contains(e.target)) {
-      return;
+    if (!this.node.contains(e.target)) {
+      if (!this.state.isPopoverActive) {
+        document.addEventListener('click', this.handleOutsideClick, false);
+      } else {
+        document.removeEventListener('click', this.handleOutsideClick, false);
+        this.setState({ isPopoverActive: false });
+      }
     }
-    this.onPopoverActive();
   };
 
   private onPopoverActive = () => {
-    if (!this.state.isPopoverActive) {
-      document.addEventListener('click', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
-    }
     this.setState(prevState => ({
       isPopoverActive: !prevState.isPopoverActive
     }));
