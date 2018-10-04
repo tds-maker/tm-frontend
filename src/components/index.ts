@@ -15,6 +15,7 @@ export { default as CutCopyPaste } from './UI/CutCopyPaste/CutCopyPaste';
 export { default as DocumentColors } from './UI/DocumentColors/DocumentColors';
 export { default as FontFamily } from './UI/FontFamily/FontFamily';
 export { default as FontStylesButtons } from './UI/FontStylesButtons/FontStylesButtons';
+export { default as FontSize } from './UI/FontSize/FontSize';
 export { default as HeadContainer } from './UI/HeadContainer/HeadContainer';
 export { default as HyperLink } from './UI/HyperLink/HyperLink';
 export { default as ImageButton } from './UI/ImageButton/ImageButton';
