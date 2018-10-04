@@ -23,25 +23,13 @@ const IApp: React.SFC<any> = ({
 }: IProps & ISelectedProps) => {
   return (
     <React.Fragment>
-      <a
-        style={selectedBold ? { backgroundColor: '#d6d6d680' } : {}}
-        className="toolbar-item"
-        onClick={onBold}
-      >
+      <a className={`toolbar-item ${selectedBold ? 'active' : ''}`} onClick={onBold}>
         <i className="icon-bold" />
       </a>
-      <a
-        style={selectedItalic ? { backgroundColor: '#d6d6d680' } : {}}
-        className="toolbar-item"
-        onClick={onItalic}
-      >
+      <a className={`toolbar-item ${selectedItalic ? 'active' : ''}`} onClick={onItalic}>
         <i className="icon-italic" />
       </a>
-      <a
-        style={selectedUnderline ? { backgroundColor: '#d6d6d680' } : {}}
-        className="toolbar-item"
-        onClick={onUnderline}
-      >
+      <a className={`toolbar-item ${selectedUnderline ? 'active' : ''}`} onClick={onUnderline}>
         <i className="icon-underlined" />
       </a>
     </React.Fragment>

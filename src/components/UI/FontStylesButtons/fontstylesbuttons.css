@@ -23,6 +23,7 @@
 .icon-underlined:before {
   content: '\e927';
 }
-.selectedFontStyle {
-  background-color: #d6d6d680;
+.toolbar-item.active:not(.dropdown) {
+  background-color: #e8f5fe;
+  border-radius: 3px;
 }

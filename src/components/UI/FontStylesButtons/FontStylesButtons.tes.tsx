@@ -54,7 +54,7 @@ describe('FontStylesButtons Component', () => {
       wrapper
         .find('a')
         .at(0)
-        .prop('style')
-    ).toHaveProperty('backgroundColor', '#d6d6d680');
+        .prop('className')
+    ).toEqual('toolbar-item active ');
   });
 });
